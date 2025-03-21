@@ -1,0 +1,369 @@
+/* ========== Root Variables ========== */
+:root {
+    --primary-color: #b03333;
+    --secondary-color: #cca099;
+}
+
+/* ========== Reset and Base Styles ========== */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f5f5;
+}
+
+/* ========== Header ========== */
+header {
+    background-image: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+    color: #ffffff;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    .icon {
+        background-color: #f5f5f5;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        position: absolute;
+        left: 20px;
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    .title {
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    .rules {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 20px;
+        font-size: 20px;
+
+        span {
+            cursor: pointer;
+            margin-left: 10px;
+            text-align: center;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #f5f5f5;
+            border-radius: 50%;
+            color: black;
+            font-size: 18px;
+            font-weight: 700;
+        }
+    }
+}
+
+/* ========== Main ========== */
+main {
+    text-align: center;
+    width: 1000px;
+    margin: 100px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .game-area {
+        .inputs {
+            >div {
+                margin-bottom: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                span {
+                    font-size: 30px;
+                    margin-right: 15px;
+                    font-weight: bold;
+                }
+            }
+
+            .disabled-inputs {
+                opacity: 0.5;
+                pointer-events: none;
+            }
+
+            input {
+                margin: 0 5px;
+                width: 60px;
+                height: 60px;
+                text-align: center;
+                font-size: 50px;
+                caret-color: var(--primary-color);
+                background-color: #ffffff;
+                border: none;
+                border-bottom: 3px solid #333;
+
+                &:focus {
+                    outline-color: #ccc;
+                }
+
+                &.yes-in-place {
+                    background-color: #f89e13;
+                    border: #f89e13;
+                    color: #ffffff;
+                }
+
+                &.not-in-place {
+                    background-color: #18ba89;
+                    border: #18ba89;
+                    color: #ffffff;
+                }
+
+                &.no {
+                    background-color: #27303f;
+                    border: #27303f;
+                    color: #ffffff;
+                }
+            }
+        }
+
+        .control {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 500px;
+            margin: 30px auto;
+            gap: 10px;
+
+            .check {
+                background-color: var(--primary-color);
+                flex: 1;
+            }
+
+            .hint {
+                background-color: #009688;
+            }
+
+            button {
+                border: none;
+                font-size: 25px;
+                padding: 15px 20px;
+                border-radius: 6px;
+                color: white;
+                cursor: pointer;
+                font-weight: bold;
+                width: fit-content;
+
+                &:disabled {
+                    background-color: black;
+                    opacity: 0.4;
+                    cursor: no-drop;
+                }
+            }
+        }
+    }
+}
+
+/* ========== Footer ========== */
+footer {
+    background-color: #333;
+    color: #ffffff;
+    padding: 15px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-weight: bold;
+}
+
+/* ========== Rules Popup ========== */
+.rule-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+
+    .rule-box {
+        background-color: white;
+        width: 90%;
+        max-width: 400px;
+        padding: 20px;
+        border-radius: 12px;
+        position: relative;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        animation: fadeIn 0.3s ease-in-out;
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .rule-content {
+            h2 {
+                text-align: center;
+                margin-bottom: 10px;
+                color: var(--primary-color);
+            }
+
+            p {
+                margin-bottom: 20px;
+                position: relative;
+
+                &::before {
+                    content: "";
+                    width: 5px;
+                    height: 5px;
+                    border-radius: 50%;
+                    background-color: black;
+                    position: absolute;
+                    left: -10px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+
+            .colors {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                div {
+                    padding: 10px;
+                    margin-bottom: 10px;
+
+                    &.correct-in-place span {
+                        padding: 5px;
+                        background-color: #f89e13;
+                        border-radius: 4px;
+                        color: white;
+                    }
+
+                    &.correct-not-in-place span {
+                        padding: 5px;
+                        background-color: #18ba89;
+                        border-radius: 4px;
+                        color: white;
+                    }
+
+                    &.wrong span {
+                        padding: 5px;
+                        background-color: #27303f;
+                        border-radius: 4px;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ========== End Game Popup ========== */
+.end-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .popup-box {
+        background: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        animation: popupFadeIn 0.3s ease;
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+
+            span {
+                font-weight: bold;
+                color: #444;
+            }
+        }
+
+        .popup-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+
+            button {
+                padding: 10px 15px;
+                font-size: 16px;
+                border: none;
+                border-radius: 6px;
+                cursor: pointer;
+                transition: 0.3s;
+
+                &:first-child {
+                    background-color: #28a745;
+                    color: white;
+
+                    &:hover {
+                        background-color: #218838;
+                    }
+                }
+
+                &:last-child {
+                    background-color: #dc3545;
+                    color: white;
+
+                    &:hover {
+                        background-color: #c82333;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ========== Animations ========== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes popupFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

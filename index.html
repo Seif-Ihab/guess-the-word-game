@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A guess word game with multiple levels and categories">
+    <title>Guess The Word</title>
+    <link rel="icon" href="imgs/logo.png" type="icon">
+    <link rel="stylesheet" href="css/home.css">
+
+</head>
+
+<body>
+    <!-- header of the page -->
+
+    <header>
+        <div class="icon">
+            <img src="imgs/logo-removebg.png" alt="my-logo">
+        </div>
+        <div class="title">Guess The Word Game</div>
+    </header>
+
+    <!-- main body -->
+    <main>
+        <div class="start">
+            <div class="level">
+                <p>Please Select The Level Of Hardness</p>
+                <label for="easy">
+                    <input id="easy" name="level" type="radio">
+                    Easy
+                </label>
+                <label for="medium">
+                    <input id="medium" name="level" type="radio" checked>
+                    Medium
+                </label>
+                <label for="hard">
+                    <input id="hard" name="level" type="radio">
+                    Hard
+                </label>
+            </div>
+            <div class="category">
+                <p>Please select your preferred category</p>
+                <select name="category">
+                    <option value="Animal">Animals</option>
+                    <option value="Country">Countries</option>
+                    <option value="Sport">Sports</option>
+                </select>
+            </div>
+            <button id="start-btn" type="button">Start Game</button>
+        </div>
+    </main>
+
+    <!-- footer -->
+    <footer>
+        Created By 0=||==Seif==>
+    </footer>
+    <script src="js/home.js"></script>
+</body>
+
+</html>

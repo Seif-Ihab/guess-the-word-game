@@ -48,3 +48,4 @@ A fun and interactive word-guessing web game built with HTML, SCSS, and JavaScri
 - Inspired by word puzzle games like Wordle.
 
 ## Demo
+- https://seif-ihab.github.io/guess-the-word-game/

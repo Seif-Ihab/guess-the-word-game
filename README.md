@@ -12,9 +12,9 @@ A fun and interactive word-guessing web game built with HTML, SCSS, and JavaScri
 -🔧 Modular Code for Easy Maintenance
 
 ##🛠️ Built With
--HTML – Markup for pages
--SCSS (CSS Preprocessor) – Structured and clean styling
--JavaScript – Game logic and dynamic behavior
+- HTML – Markup for pages
+- SCSS (CSS Preprocessor) – Structured and clean styling
+- JavaScript – Game logic and dynamic behavior
 
 ##📂 Folder Structure
 /guess-the-word-game
